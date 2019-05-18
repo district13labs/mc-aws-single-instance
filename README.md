@@ -41,6 +41,21 @@ Use the cli tool, run `./mc-server.sh` for help, or with help, or --help doesn't
 
 Currently only one spot request supported. That being said, I'm not responsible for any error caused by leaving the aforementioned declaration out of account.
 
+The linux os has to be distro of CentOS. Reliability-wise I would suggest either Amazon Linux AMI 2018 or Amazon Linux AMI 2.
+Unless one modifies the user-data, could not proceed with other distros. 
+
 ## Future plans
 
-Ability to handle multiple spot request.
+1. Ability to handle multiple spot request.
+2. Compatiblity with other distros if necessary at all.
+
+## For newbies
+
+* All these are region dependent. What does that mean? Security groups, ssh key, ami has to be readded per region.
+* Create an aws account [here](https://aws.amazon.com/resources/create-account/?tag=duckduckgo-d-20)
+* (Configure you aws cli)[https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html]
+    * Configure and manage your region from the cli, using `aws configure`
+* Login and register an [ssh key](https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html).
+* Create the security groups required by the launch configuration. Open port to 22 (ssh) and 25565 (mc-server port).
+* Gonna need an ami too.
+* Need an instance profile also, this can be obtained from the IAM service. In other words create a service role of type EC2 and give access to s3.
