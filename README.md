@@ -33,7 +33,7 @@ Kinda best choice for this: c5d.large. Relatively cheap, by ca. 70% than usual p
     "UserData": "{user_data}" // This also comes from the cli
 }
 ```
-Copy and rename the launch config to *local.*whatever.json, fill the required parts and you are good to go.
+Copy and rename the launch config to **local**.whatever.json, fill the required parts and you are good to go.
 
 Use the cli tool, run `./mc-server.sh` for help, or with help, or --help doesn't really matter. 
 
