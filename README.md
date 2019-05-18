@@ -22,7 +22,7 @@ Kinda best choice for this: c5d.large. Relatively cheap, by ca. 70% than usual p
     ],
     "EbsOptimized": true,
     "IamInstanceProfile": {
-        "YOUR_INSTANCE_PROFILE_PREFFEREBLY_TO_FULL_S3_ACCESS"
+        "YOUR_INSTANCE_PROFILE_PREFERABLY_TO_FULL_S3_ACCESS"
     },
     "ImageId": "AMI_DEPENDS_ON_THE_REGION",
     "InstanceType": "{instance_type}", // This comes from the cli
@@ -36,3 +36,11 @@ Kinda best choice for this: c5d.large. Relatively cheap, by ca. 70% than usual p
 Copy and rename the launch config to *local.*whatever.json, fill the required parts and you are good to go.
 
 Use the cli tool, run `./mc-server.sh` for help, or with help, or --help doesn't really matter. 
+
+## Important notes
+
+Currently only one spot request supported. That being said, I'm not responsible for any error caused by leaving the aforementioned declaration out of account.
+
+## Future plans
+
+Ability to handle multiple spot request.
