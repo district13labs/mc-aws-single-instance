@@ -1,6 +1,6 @@
 #!/bin/bash
 # c4.xlarge high network performance, 7.5 G - ~$0.06/h * TAX = ~$0,078
-# t3.large moderate network performance, 3.5 G - ~$0.03/h * $1,33 (TAX) ~= $0.04
+# t3.large moderate network performance, 3.5 G - ~$0.03/h * 1,33 (TAX) ~= $0.04
 # c5d.large up to 10G perfromance 4G RAM, higher computing power
 
 request() {
