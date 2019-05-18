@@ -1,14 +1,14 @@
 # mc-aws
 
-Consists of mc server components, a cli tool `mc-server.sh` a user-data for the spot instance and some launch configs.
+Consists of mc server components, a cli tool `mc-server.sh` a user-data for the spot instance and a launch config template.
 
 ### How it works:
 Request a spot instance based off the provided launch configuration and the arbitrary instance type.
 
 What to look for in terms of server suitable for mc:
-0. Computing power
-0. Network performance
-0. At least 2 gigs of RAM
+* Computing power
+* Network performance
+* At least 2 gigs of RAM
 
 Satisfiable by a c5/c5d type ec2 instance.
 We use spot instance, therefore have to take care of saving and loading the game.
@@ -33,5 +33,6 @@ Kinda best choice for this: c5d.large. Relatively cheap, by ca. 70% than usual p
     "UserData": "{user_data}" // This also comes from the cli
 }
 ```
+Copy and rename the launch config to *local.*whatever.json, fill the required parts and you are good to go.
 
 Use the cli tool, run `./mc-server.sh` for help, or with help, or --help doesn't really matter. 

@@ -1,15 +1,14 @@
 {
     "SecurityGroupIds": [
-        "sg-fe2dd2b1",
-        "sg-07747c4af9ca0d616"
+        ""
     ],
     "EbsOptimized": true,
     "IamInstanceProfile": {
-      "Arn": "arn:aws:iam::707623682507:instance-profile/EC2S3FullAccess"
+      "Arn": ""
     },
-    "ImageId": "ami-0de53d8956e8dcf80",
+    "ImageId": "",
     "InstanceType": "{instance_type}",
-    "KeyName": "MyNewKeyPair",
+    "KeyName": "",
     "Monitoring": {
       "Enabled": false
     },
