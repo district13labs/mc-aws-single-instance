@@ -11,7 +11,7 @@ What to look for in terms of server suitable for mc:
 * At least 2 gigs of RAM
 
 Satisfiable by a c5/c5d type ec2 instance.
-We use spot instance, therefore have to take care of saving and loading the game.
+We use spot instance, therefore have to take care of saving and loading the game, for this we use tarballs.
 Kinda best choice for this: c5d.large. Relatively cheap, by ca. 70% than usual price, $0.033 + TAX of course.
 
 ### Launch config example

@@ -52,9 +52,10 @@ load-game() {
 
 save-game() {
   world=${1:? Provide a path where the game should be saved!}
+  saveName=${2:? Name of the save required!}
   publicIp=$(get-ec2-pub-ip)
-  ssh-ec2 tar -czf /home/ec2-user/minecraft-server/world.tar.gz /home/ec2-user/minecraft-server/world
-  scp -o StrictHostKeyChecking=no ec2-user@${publicIp}:/home/ec2-user/minecraft-server/world.tar.gz ${world}
+  ssh-ec2 tar -czf /home/ec2-user/minecraft-server/${saveName}.tar.gz /home/ec2-user/minecraft-server/world
+  scp -o StrictHostKeyChecking=no ec2-user@${publicIp}:/home/ec2-user/minecraft-server/${saveName}.tar.gz ${world}
 }
 
 ssh-ec2() {
@@ -63,6 +64,10 @@ ssh-ec2() {
 
 launch-server() {
   ssh-ec2 mc-start
+}
+
+shutdown-server() {
+  ssh-ec2 pkill -f java8
 }
 
 case $1 in
@@ -82,17 +87,27 @@ case $1 in
   ;;
   'save-game')
   shift
-  save-game $1
+  save-game $1 $2
   ;;
   'get-ec2-pub-ip')
   get-ec2-pub-ip
   ;;
   'ssh')
-  shift
-  ssh-ec2 $@
+  ssh-ec2
   ;;
-  'launch-server')
-  launch-server
+  'server')
+  shift
+  case $1 in
+    'launch')
+    launch-server
+    ;;
+    'shutdown')
+    shutdown-server
+    ;;
+    *)
+    echo 'Possible values are: ./mc-server server launch|shutdown'
+    ;;
+  esac
   ;;
   *)
   cat <<HELP
@@ -104,7 +119,7 @@ Commands:
 request [INSTANCE_TYPE]            request a spot instance, defaults to t3.large
 load-game  PATH_TO_WORLD           speaks itself
 save-game  PATH_TO_SAVE_LOCATION   speaks itself
-launch-server                      start the minecraft server
+server [launch|shutdown]           launch or shutdown minecraft server
 ssh [COMMAND]                      ssh into the instance, or run a command through ssh
 get-ec2-pub-ip                     get ip address of requested ec2 instance
 cancel                             cancel a spot request, delete ec2 instance
