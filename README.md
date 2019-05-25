@@ -3,7 +3,7 @@
 Consists of mc server components, a cli tool `mc-server.sh` a user-data for the spot instance and a launch config template.
 
 ### How it works:
-Request a spot instance based off the provided launch configuration and the arbitrary instance type.
+Request a spot instance based off the provided launch configuration and an arbitrary instance type.
 
 What to look for in terms of server suitable for mc:
 * Computing power
@@ -13,6 +13,9 @@ What to look for in terms of server suitable for mc:
 Satisfiable by a c5/c5d type ec2 instance.
 We use spot instance, therefore have to take care of saving and loading the game, for this we use tarballs.
 Kinda best choice for this: c5d.large. Relatively cheap, by ca. 70% than usual price, $0.033 + TAX of course.
+
+### Prerequisites
+* You're gonna need [jq](https://stedolan.github.io/jq/), since I use this to parse json from stdout. It's a pretty neat tool.
 
 ### Launch config example
 ```
