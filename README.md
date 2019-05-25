@@ -53,7 +53,7 @@ Unless one modifies the user-data, could not proceed with other distros.
 
 * All these are region dependent. What does that mean? Security groups, ssh key, ami has to be readded per region.
 * Create an aws account [here](https://aws.amazon.com/resources/create-account/?tag=duckduckgo-d-20)
-* (Configure you aws cli)[https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html]
+* [Configure you aws cli](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
     * Configure and manage your region from the cli, using `aws configure`
 * Login and register an [ssh key](https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html).
 * Create the security groups required by the launch configuration. Open port to 22 (ssh) and 25565 (mc-server port).
