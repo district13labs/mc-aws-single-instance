@@ -43,19 +43,16 @@ get-ec2-pub-ip() {
 }
 
 load-game() {
-  world=${1:? Path to minecraft world is required!}
-  publicIp=$(get-ec2-pub-ip)
-  scp ${world} ec2-user@${publicIp}:/home/ec2-user/minecraft-server
+  world=${1:? World name is required!}
+  ssh-ec2 aws s3 cp s3://saxum-vermes-mc/${world}/world.tar.gz /home/ec2-user/minecraft-server
   ssh-ec2 tar -xzf /home/ec2-user/minecraft-server/world.tar.gz -C /home/ec2-user/minecraft-server
   ssh-ec2 rm -rf /home/ec2-user/minecraft-server/world.tar.gz
 }
 
 save-game() {
-  world=${1:? Provide a path where the game should be saved!}
-  saveName=${2:? Name of the save required!}
-  publicIp=$(get-ec2-pub-ip)
-  ssh-ec2 tar -czf /home/ec2-user/minecraft-server/${saveName}.tar.gz /home/ec2-user/minecraft-server/world
-  scp -o StrictHostKeyChecking=no ec2-user@${publicIp}:/home/ec2-user/minecraft-server/${saveName}.tar.gz ${world}
+  world=${1:? World name is required!}
+  ssh-ec2 tar -czf /home/ec2-user/minecraft-server/world.tar.gz /home/ec2-user/minecraft-server/world
+  ssh-ec2 aws s3 cp /home/ec2-user/minecraft-server/world.tar.gz s3://saxum-vermes-mc/${world}/
 }
 
 ssh-ec2() {
