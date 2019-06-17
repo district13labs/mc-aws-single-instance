@@ -67,6 +67,10 @@ shutdown-server() {
   ssh-ec2 pkill -f java8
 }
 
+status() {
+  aws ec2 describe-instances | jq .Reservations[0].Instances[0].State 
+}
+
 case $1 in
   'request')
   shift
@@ -92,6 +96,9 @@ case $1 in
   'ssh')
   ssh-ec2
   ;;
+  'status')
+  status
+  ;;
   'server')
   shift
   case $1 in
@@ -108,19 +115,20 @@ case $1 in
   ;;
   *)
   cat <<HELP
-Usage: ./spot.sh <command> <arg>
+Usage: ./mc-server.sh <command> <arg>
 
 Commands:
 ---------
 
 request [INSTANCE_TYPE]            request a spot instance, defaults to t3.large
-load-game  PATH_TO_WORLD           speaks itself
-save-game  PATH_TO_SAVE_LOCATION   speaks itself
+load-game  WORLD_NAME              provide the name of the world
+save-game  WORLD_NAME              provide the name of the world
 server [launch|shutdown]           launch or shutdown minecraft server
 ssh [COMMAND]                      ssh into the instance, or run a command through ssh
 get-ec2-pub-ip                     get ip address of requested ec2 instance
 cancel                             cancel a spot request, delete ec2 instance
 list                               list spot requests
+status                             gives back info on instance state
 HELP
   ;;
 esac
