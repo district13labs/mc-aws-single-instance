@@ -1,6 +1,6 @@
 # mc-aws
 
-Consists of mc server components, a cli tool `mc-server.sh` a user-data for the spot instance and a launch config template.
+Consists of mc server components, a cli tool `mc-s` a user-data for the spot instance and a launch config template.
 
 ### How it works:
 Request a spot instance based off the provided launch configuration and an arbitrary instance type.
@@ -38,7 +38,7 @@ Kinda best choice for this: c5d.large. Relatively cheap, by ca. 70% than usual p
 ```
 Copy and rename the launch config to **local**.whatever.json, fill the required parts and you are good to go.
 
-Use the cli tool, run `./mc-server.sh` for help, or with help, or --help doesn't really matter. 
+Use the cli tool, run `./mc-s` for help, or with help, or --help doesn't really matter. 
 
 ## Important notes
 
