@@ -40,7 +40,7 @@ Copy and rename the launch config to **local**.whatever.json, fill the required 
 
 Use the cli tool, run `./mc-s` for help, or with help, or --help doesn't really matter.
 
-Copy and rename `.env` and set an s3 uri where the saves gonna go.
+Copy and rename `.env` to `local.env` and set an existing, arbitrary s3 uri.
 
 ## Important notes
 
