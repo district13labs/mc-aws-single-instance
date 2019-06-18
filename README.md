@@ -38,7 +38,9 @@ Kinda best choice for this: c5d.large. Relatively cheap, by ca. 70% than usual p
 ```
 Copy and rename the launch config to **local**.whatever.json, fill the required parts and you are good to go.
 
-Use the cli tool, run `./mc-s` for help, or with help, or --help doesn't really matter. 
+Use the cli tool, run `./mc-s` for help, or with help, or --help doesn't really matter.
+
+Copy and rename `.env` to `local.env` and set an existing, arbitrary s3 uri.
 
 ## Important notes
 
