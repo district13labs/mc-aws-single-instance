@@ -4,7 +4,14 @@
 # c5d.large up to 10G perfromance 4G RAM, higher computing power
 
 #----------------------Initialization---------------------------#
+if [ ! -f .env ]; then
+  echo 'Missing local.env file!'
+  exit 1
+fi
+
+# "Import" .env file vars.
 source local.env
+
 aws s3 ls ${S3_URI} &> /dev/null
 if [[ ! $? = 0 ]]; then
   echo 'Missing config variable S3_URI, or invalid uri!'
