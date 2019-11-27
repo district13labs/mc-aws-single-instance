@@ -8,7 +8,7 @@ ln -s /usr/lib/jvm/java-1.8.0/bin/java /usr/bin/java8
 mkdir -p /home/ec2-user/minecraft-server && cd $_
 
 aws s3 cp --recursive s3://saxum-vermes/minecraft-server/mc-server-components ./
-curl -LSs -O https://launcher.mojang.com/v1/objects/808be3869e2ca6b62378f9f4b33c946621620019/server.jar
+curl -LSs -O https://launcher.mojang.com/v1/objects/3dc3d84a581f14691199cf6831b71ed1296a9fdf/server.jar
 
 chown -R ec2-user:ec2-user /home/ec2-user
 
