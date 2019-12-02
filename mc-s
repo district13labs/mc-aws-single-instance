@@ -68,7 +68,7 @@ load-world() {
 
 save-world() {
   world=${1:? World name is required!}
-  ssh-ec2 tar -czf /home/ec2-user/minecraft-server/world.tar.gz /home/ec2-user/minecraft-server/world
+  ssh-ec2 tar -czf '/home/ec2-user/minecraft-server/world.tar.gz' '/home/ec2-user/minecraft-server/world'
   ssh-ec2 aws s3 cp /home/ec2-user/minecraft-server/world.tar.gz ${S3_URI}/${world}/
 }
 
