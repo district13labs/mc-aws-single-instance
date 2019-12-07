@@ -7,8 +7,8 @@ ln -s /usr/lib/jvm/java-1.8.0/bin/java /usr/bin/java8
 
 mkdir -p /home/ec2-user/minecraft-server && cd $_
 
-curl -LSs -O https://raw.githubusercontent.com/district13labs/mc-aws/develop/mc-server-components/eula.txt
-curl -LSs -O https://raw.githubusercontent.com/district13labs/mc-aws/develop/mc-server-components/server.properties
+curl -LSs -O https://raw.githubusercontent.com/district13labs/mc-aws/develop/assets/mc-server-components/eula.txt
+curl -LSs -O https://raw.githubusercontent.com/district13labs/mc-aws/develop/assets/mc-server-components/server.properties
 curl -LSs -O https://launcher.mojang.com/v1/objects/3dc3d84a581f14691199cf6831b71ed1296a9fdf/server.jar
 
 chown -R ec2-user:ec2-user /home/ec2-user
